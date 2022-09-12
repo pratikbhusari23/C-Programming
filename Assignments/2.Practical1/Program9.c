@@ -9,6 +9,7 @@ void main() {
 	for(int i=x ;i>=1;i--) {
 		if(x%i==0) {
 			count++ ;
+			printf("Divisors of 16 are %d\n",i);
 		}
 	
 	}printf("No of Divisores = %d\n",count);

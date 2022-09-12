@@ -12,7 +12,7 @@ void main() {
 		x = x/10 ;
 
 	}
-	printf("%d",sum);
+	printf("Sum = %d\n",sum);
 
 	
 	

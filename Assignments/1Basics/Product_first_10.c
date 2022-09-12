@@ -7,5 +7,5 @@ void main() {
 		x*=i;	
 		
 	}
-	printf("%d",x);
+	printf("Product of first 10 numbers = %d",x);
 }

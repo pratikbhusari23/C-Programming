@@ -3,17 +3,23 @@
 #include<stdio.h>
 
 void main() {
-	int x;
-	printf("Enter no");
+	int x,temp=0;
+	printf("Enter no : ");
 	scanf("%d",&x);
 
-	for() {
+	for(int i=2 ;i<=x/2 ;i++) {
+		if(x%i==0) {
+			temp++;
+		}
 	
-	}if() {
-		printf("%d is a Prime no",x);
-
-	}else{
-		printf("%d is a Prime no",x);
+	}
+	if(temp==0 && x!=1){
+		printf("%d is a Prime no\n",x);
+	
+	}
+	else {
+		printf("%d is not a Prime no\n",x);
+	
 	}
 
 
