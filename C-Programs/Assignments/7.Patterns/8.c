@@ -35,3 +35,9 @@ void main() {
 
 
 }
+
+/* Enter no of rows : 3
+ * Enter no of cols : 4
+ * 12      11      10      9
+ * H       G       F       E
+ * 4       3       2       1
