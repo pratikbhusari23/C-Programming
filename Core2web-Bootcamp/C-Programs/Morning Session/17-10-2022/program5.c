@@ -1,0 +1,8 @@
+/*
+
+  				d
+			c	c	c
+		b	b	b	b	b
+	a	a	a	a	a	a	a
+
+*/

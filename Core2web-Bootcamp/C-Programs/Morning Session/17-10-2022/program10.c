@@ -1,0 +1,9 @@
+/*
+ 
+  					A
+				b	a	b
+			C	E	G	E	C
+		d	c	b	a	b	c	d
+	E	G	I	K	M	K	I	G	E
+
+*/
