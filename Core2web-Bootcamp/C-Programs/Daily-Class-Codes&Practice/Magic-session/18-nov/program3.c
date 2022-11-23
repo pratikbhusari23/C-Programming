@@ -3,24 +3,73 @@
 
 void main(){
 
-    int row=3,col=4;
+    int rows,cols,plane;
 
-    int*arr=(int*)malloc(row*col*sizeof(int));
+    printf("Enter no of rows : ");
+    scanf("%d",&rows);
 
-    for (int i = 0; i < row; i++){
-        for(int j=0 ;j<col ;j++){
-        
-            printf("Enter integer : ");
-            scanf("%d",*(*(arr+i)+j)); 
-        }
+    printf("Enter no of cols : ");
+    scanf("%d",&cols);
+
+    int*arr=(int*)malloc(rows*cols*sizeof(int));
+
+    printf("Enter Elements : \n");
+    for (int i=0;i<rows*cols;i++){
+        scanf("%d",arr+i);
     }
-    for (int i = 0; i < row; i++){
-        for(int j=0 ; j<col;j++){
-        
-            printf("%d\n",*(*(arr+i)+j));
-        }
+    printf("Elements Entered by you are : \n");
+    for(int i=0;i<rows*cols;i++){
+        printf("%d\n",*(arr+i));
     }
-
+      
     free(arr);
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #include<stdio.h>
+// #include<stdlib.h>
+
+// void main(){
+
+//     int rows,cols;
+//     printf("Enter no of rows : ");
+//     scanf("%d",&rows);
+
+//     printf("Enter no of cols : ");
+//     scanf("%d",&cols);
+
+//     int**arr=(int**)malloc(rows*sizeof(int*));
+
+//     printf("Enter Elements : \n");
+//     for (int i=0;i<rows;i++){
+//         arr[i]=(int*)malloc(cols*sizeof(int));
+//         for(int j=0;j<cols;j++){
+            
+//             scanf("%d",*(arr+i)+j); 
+//         }
+//     }
+//     printf("Entered Elements are : ");
+//     for (int i = 0; i < rows; i++){
+//         for(int j=0 ; j<cols;j++){
+        
+//             printf("%d\n",*(*(arr+i)+j));
+//         }
+//     }
+
+//     free(arr);
+    
+// }
