@@ -163,13 +163,54 @@ void deleteLast(){
 		temp->next = NULL;
 	}
 }
+int occurence(int num){
+
+	if(head==NULL){
+		printf("Your Liniked List is Empty\n");	
+	return -1;
+	}
+	else {
+		Node * temp=head;
+		int i=0,count=1;
+		while(temp!=NULL){
+			if(temp->data==num){
+				i=count;
+			}
+			count++;
+			temp=temp->next;
+		}
+		if(i==0){
+			printf("Input Not present in linked list ");
+		return 0;
+		}
+		temp=head;
+		i--;
+		int j=0;
+		count=1;
+
+		while(i){
+			if(temp->data==num){
+				j=count;
+			}
+			count++;
+			temp=temp->next;
+			i--;
+		}
+		if(j==0){
+
+			printf("%d is only present once : ",num);
+		}
+		else {
+			printf("2nd last occurence of %d id at node  %d  ",num,j);
+		}
+	}
+	return 0;
+}
 void main(){
 	
-	
-	
 	char ch;
-    int pos,pos1;
-	do {	
+       	int pos,pos1,num;
+		do {	
 		printf("Which Operation do you want :\n");
 		printf("\t1.addNode\n");
 		printf("\t2.Count nodes in Linked List\n");
@@ -180,6 +221,7 @@ void main(){
 		printf("\t7.delete from specific positon\n");
 		printf("\t8.deleteLast\n");
 		printf("\t9.printLinkedList\n");
+		printf("\t10.Ocurrence\n");
 		int choice;
 		printf("Enter your choice : ");
 		scanf("\t%d",&choice);
@@ -218,6 +260,11 @@ void main(){
 				break;
 			case 9:
 				printLL();
+				break;
+			case 10:
+				printf("Enter Data You want to search : ");
+				scanf("%d",&num);
+				occurence(num);
 				break;
 			default:
 				printf("You entered wrong choice\n");
