@@ -170,10 +170,11 @@ void printll(){
 		printf("Your Linked List is Empty !");
 	}
 	else {
-		while(temp!=NULL){
+		while(temp->next!=NULL){
 			printf("|%d|->",temp->data);
 			temp=temp->next;
 		}
+		printf("|%d|",temp->data);
 	}
 }
 
@@ -203,11 +204,10 @@ int FirstOccurence(int num){
 	}
 }
 
-
 int secondLastOccurence(int num){
 
 	d * temp=head;
-	int cnt=1,occur2=0,occur1=0;
+	int cnt=1,occur2=0,occur1=1;
 
 	while(temp!=NULL){
 		if(temp->data==num){
@@ -216,20 +216,42 @@ int secondLastOccurence(int num){
 		}
 		cnt++;
 		temp=temp->next;
-	
 	}
-	if(cnt==0){
-		printf("%d is not present in Linekd List",num);
-	
+	if(occur2==0){
+		printf("%d is not present in Linked List",num);
+ 	
 	}
-	else if(cnt==1){
-		printf("%d Occured Only once",num);
+	else if(occur2==1){
+		printf("%d Occured Only once at %d",num,occur1);
 	}
 	else {
 		printf("second last occurence of %d is at %d",num,occur2);
 	}
 }
 
+int LastOccurence(int num){
+	
+	d * temp=head;
+
+	int cnt=1,pos,flag=1;
+	
+	while(temp!=NULL){
+
+		if(temp->data==num){
+			flag=1;
+			pos=cnt;
+		}
+		cnt++;
+		temp=temp->next;
+	}
+	if(flag==0){
+		printf("%d is not present in Linked List",num);
+ 	
+	}
+	else {
+		printf("Last occurence of %d is at %d",num,pos);
+	}
+}
 void main(){
 
 	char ch;
@@ -248,7 +270,7 @@ void main(){
 		printf("9.Print Linked List\n");
 		printf("10.Check First Occurence\n");
 		printf("11.Check Second Last\n");
-
+		printf("12.Check Last Occurence\n");
 		int choice;
 		printf("\nEnter Your Choice : \n");
 		scanf("%d",&choice);
@@ -300,6 +322,12 @@ void main(){
 				scanf("%d",&num);
 				secondLastOccurence(num);
 				break;
+			case 12 :
+				printf("Which num do you want to search ?\n");
+				scanf("%d",&num);
+				LastOccurence(num);
+				break;
+
 			default :
 				printf("Invalid Input !");
 		
