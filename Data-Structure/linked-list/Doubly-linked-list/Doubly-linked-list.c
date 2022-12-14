@@ -70,12 +70,20 @@ int count(){
 int addAtPos(int pos){
 	
 	nd * newNode=CreateNode();
+
 	int cnt = count();
 	if(head==NULL){
 		head=newNode;
 	}
-	else if(pos<1 || pos>cnt){
+	else if(pos<1 || pos>cnt+1){
 		printf("Invalid Position Enterd !");
+	}
+	else if(pos==1){
+		addAtfirst();
+	}
+	else if(pos==cnt+1){
+		addAtlast();
+
 	}
 	else {
 		nd * temp=head;
