@@ -252,6 +252,73 @@ int LastOccurence(int num){
 		printf("Last occurence of %d is at %d",num,pos);
 	}
 }
+
+int TotalOccurence(int num){
+
+	d * temp=head;
+
+	int cnt=0,flag=1;
+	
+	while(temp!=NULL){
+
+		if(temp->data==num){
+			flag=1;
+			cnt++;	
+		}
+		temp=temp->next;
+	}
+	if(flag==0){
+		printf("%d is not present in Linked List",num);
+ 	
+	}
+	else {
+		printf("Total Occurence of %d is %d",num,cnt);
+	}
+}
+
+int addDataofNode(){
+	
+	d * temp=head;
+
+	while(temp!=NULL){
+		
+		int sum=0;
+		int temp1=temp->data;
+		while(temp1!=0){
+			sum=sum+temp1%10;
+			temp1=temp1/10;
+		}
+		temp->data=sum;
+		temp=temp->next;
+		
+	}
+}
+
+int PalindromeNode(){
+	
+	d * temp=head;
+	
+	int sum=0,temp1,rem,cnt=0;
+
+	while(temp!=NULL){
+	
+		temp1=temp->data;
+		cnt++;
+		while(temp->data){
+
+			rem=temp->data%10;
+			sum=(sum*10)+rem;
+			temp->data=temp->data/10;		
+
+		}	
+		if(temp1==sum){
+			printf("Palindrome Found at position %d ",cnt);
+		}
+		temp=temp->next;
+	
+	}
+}
+
 void main(){
 
 	char ch;
@@ -271,6 +338,10 @@ void main(){
 		printf("10.Check First Occurence\n");
 		printf("11.Check Second Last\n");
 		printf("12.Check Last Occurence\n");
+		printf("13.Check Total Occurences\n");
+		printf("14.Add Data of a Node\n");
+		printf("15.Check Nodes That are palindrome\n");
+
 		int choice;
 		printf("\nEnter Your Choice : \n");
 		scanf("%d",&choice);
@@ -327,7 +398,17 @@ void main(){
 				scanf("%d",&num);
 				LastOccurence(num);
 				break;
-
+			case 13 : 
+				printf("Which num do you want to search ?\n");
+				scanf("%d",&num);
+				TotalOccurence(num);
+				break;
+			case 14 :
+				addDataofNode();
+				break;
+			case 15 :
+				PalindromeNode();
+				break;
 			default :
 				printf("Invalid Input !");
 		
