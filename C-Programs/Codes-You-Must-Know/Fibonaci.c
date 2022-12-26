@@ -18,5 +18,5 @@ void main(){
 
     }
 
-    printf("%d ",c);
+    printf("%d \n",c);
 }
