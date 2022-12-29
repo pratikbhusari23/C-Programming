@@ -63,6 +63,8 @@ void addNode(){
     }
 }
 
+
+
 void printSLL(){
 
     struct Node * temp=head;

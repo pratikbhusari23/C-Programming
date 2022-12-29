@@ -1,13 +1,14 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#define MAX 5
 
-int arr_size;
+int queue[MAX];
 int front=-1,rear=-1;
 
 
-void enqueue(int data,int arr[]){
-    if(rear==arr_size-1){
+void enqueue(int data){
+    if(rear==MAX-1){
         printf("Queue is Full");
     }
     else{
@@ -15,11 +16,12 @@ void enqueue(int data,int arr[]){
             front=0;
         }
         rear++;
-        arr_size[rear]=data;
+        queue[rear]=data;
     }
 }
 
 void dequeue(){
+    
     if(front==-1 || front>rear){
         printf("Queue is Empty");
     }
@@ -28,39 +30,34 @@ void dequeue(){
     }
 }
 
-void sort(int arr[]){
+void sort(){
     int i,j,temp;
-    for(i=0;i<arr_size;i++){
-        for(j=i+1;j<arr_size;j++){
-            if(arr_size[i]>arr_size[j]){
-                temp=arr_size[i];
-                arr_size[i]=arr_size[j];
-                arr_size[j]=temp;
+    for(i=0;i<MAX;i++){
+        for(j=i+1;j<MAX;j++){
+            if(queue[i]>queue[j]){
+                temp=queue[i];
+                queue[i]=queue[j];
+                queue[j]=temp;
             }
         }
     }
 }   
 
-void display(int arr[]){
+void display(){
     int i;
     for(i=front;i<=rear;i++){
-        printf("%d ",arr_size[i]);
+        printf("%d ",queue[i]);
     }
 }
 
 int main(){
-
-    printf("Enter Size of Array :");
-    scanf("%d",&arr_size);
-
-    int arr[arr_size];
     int i,data;
-    for(i=0;i<arr_size;i++){
+    for(i=0;i<MAX;i++){
         printf("Enter Data :\n");
         scanf("%d",&data);
-        enqueue(data,arr[arr_size]);
+        enqueue(data);
     }
-    sort(arr[arr_size]);
-    display(arr[arr_size]);
+    sort();
+    display();
     return 0;
 }
