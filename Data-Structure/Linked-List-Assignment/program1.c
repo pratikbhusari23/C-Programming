@@ -72,10 +72,12 @@ void occurence(){
 
         if(temp->data==num){
             count++;
+            break;
         }
+        count++;
         temp=temp->next;
     }
-    printf("The number %d occurs %d times in the linked list",num,count);
+    printf("The number %d occured at position %d in the linked list",num,count);
 }
 
 int main(){
@@ -87,7 +89,7 @@ int main(){
         printf("\n1. Add Node\n");
         printf("2. Print Linked List\n");
         printf("3. Occurence of a number\n");
-        printf("4. Exit");
+        printf("4. Exit\n");
 
         printf("Enter your choice:\n");
         scanf("%d",&choice);
