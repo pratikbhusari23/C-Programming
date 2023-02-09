@@ -32,13 +32,27 @@ struct Node * addNode(struct Node * head){
     if(head==NULL){
         head=newNode;
     }
+    else if(head->data>newNode->data){
+        newNode->next=head;
+        head=newNode;
+    }
     else{
         struct Node * temp=head;
-        while(temp->next!=NULL){
+        while(temp->next!=NULL && temp->next->data<newNode->data){
             temp=temp->next;
         }
+        newNode->next=temp->next;
         temp->next=newNode;
     }
+    
+    
+    // else{
+    //     struct Node * temp=head;
+    //     while(temp->next!=NULL){
+    //         temp=temp->next;
+    //     }
+    //     temp->next=newNode;
+    // }
     return head;
 }
 
@@ -63,44 +77,45 @@ void printSLL(struct Node * head){
     printf("|%d|",temp->data);
 }
 
-void CloneinAscendingOrder(struct Node * head){
-    struct Node * temp=head;
-    struct Node * temp2=head2;
-    int count1=count(head);
-    int count2=count(head2);
-    int arr[count1];
-    int i=0;
-    while(temp!=NULL){
-        arr[i]=temp->data;
-        temp=temp->next;
-        i++;
-    }
-    for(int i=0 ; i<count1 ; i++){
-        for(int j=i+1 ; j<count1 ; j++){
-            if(arr[i]>arr[j]){
-                int temp=arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp;
-            }
-        }
-    }
-    for(int i=0 ; i<count1 ; i++){
-        struct Node * newNode=(struct Node*)malloc(sizeof(struct Node));
-        newNode->data=arr[i];
-        newNode->next=NULL;
-        if(head2==NULL){
-            head2=newNode;
-        }
-        else{
-            struct Node * temp=head2;
-            while(temp->next!=NULL){
-                temp=temp->next;
-            }
-            temp->next=newNode;
-        }
-    }
-    printSLL(head2);
-}
+
+// void CloneinAscendingOrder(struct Node * head){
+//     struct Node * temp=head;
+//     struct Node * temp2=head2;
+//     int count1=count(head);
+//     int count2=count(head2);
+//     int arr[count1];
+//     int i=0;
+//     while(temp!=NULL){
+//         arr[i]=temp->data;
+//         temp=temp->next;
+//         i++;
+//     }
+//     for(int i=0 ; i<count1 ; i++){
+//         for(int j=i+1 ; j<count1 ; j++){
+//             if(arr[i]>arr[j]){
+//                 int temp=arr[i];
+//                 arr[i]=arr[j];
+//                 arr[j]=temp;
+//             }
+//         }
+//     }
+//     for(int i=0 ; i<count1 ; i++){
+//         struct Node * newNode=(struct Node*)malloc(sizeof(struct Node));
+//         newNode->data=arr[i];
+//         newNode->next=NULL;
+//         if(head2==NULL){
+//             head2=newNode;
+//         }
+//         else{
+//             struct Node * temp=head2;
+//             while(temp->next!=NULL){
+//                 temp=temp->next;
+//             }
+//             temp->next=newNode;
+//         }
+//     }
+//     printSLL(head2);
+// }
 void main(){
 
     int Nodecount,num1,num2;
@@ -114,7 +129,7 @@ void main(){
     printf("\n");
     printSLL(head1);
     printf("\n");
-    CloneinAscendingOrder(head1);
+    // CloneinAscendingOrder(head1);
     printf("\n");
 
 

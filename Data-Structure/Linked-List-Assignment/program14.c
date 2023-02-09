@@ -67,30 +67,112 @@ void printSLL(struct Node * head){
     printf("|%d|",temp->data);
 }
 
-void CheckSublist(struct Node * head1,struct Node * head2){
+// void CheckSublist(struct Node * head1,struct Node * head2){
+
+//     struct Node * temp1=head1;
+//     struct Node * temp2=head2;
+//     int count1=count(head1);
+//     int count2=count(head2);
+//     int flag=0;
+//     int pos=0;
+//     int i=0;
+//     while(temp2!=NULL){
+//         if(temp1->data==temp2->data){
+//             temp1=temp1->next;
+//             temp2=temp2->next;
+//             flag++;
+//             if(flag==count1){
+//                 pos=i;
+//             }
+//         }
+//         else{
+//             temp1=head1;
+//             temp2=temp2->next;
+//             flag=0;
+//         }
+//         i++;
+//     }
+//     if(flag==count1){
+//         printf("Sublist found at position %d",pos);
+//     }
+//     else{
+//         printf("Sublist not found");
+//     }
+// }
+
+// void CheckSublist(struct Node * head1,struct Node * head2){
+
+//     if (head1 == NULL || head2 == NULL) {
+//         printf("One or both of the linked lists are empty\n");
+//         return;
+//     }
+
+//     struct Node * temp1=head1;
+//     struct Node * temp2=head2;
+//     int count1=count(head1);
+//     int count2=count(head2);
+//     int flag=0;
+//     int pos=-1;
+//     int i=0;
+//     while(temp2!=NULL){
+//         if(temp1->data==temp2->data){
+//             temp1=temp1->next;
+//             temp2=temp2->next;
+//             flag++;
+//             if(flag==count1){
+//                 pos=i-count1+1;
+//             }
+//         }
+//         else{
+//             temp1=head1;
+//             temp2=temp2->next;
+//             flag=0;
+//             i=0;
+//         }
+//         i++;
+//     }
+//     if(flag==count1){
+//         printf("Sublist found at position %d",pos);
+//     }
+//     else{
+//         printf("Sublist not found");
+//     }
+// }
+
+void CheckFirstPositionOfLastOccuringSublist(struct Node * head1,struct Node * head2){
+
+    if (head1 == NULL || head2 == NULL) {
+        printf("One or both of the linked lists are empty\n");
+        return;
+    }
 
     struct Node * temp1=head1;
     struct Node * temp2=head2;
     int count1=count(head1);
     int count2=count(head2);
     int flag=0;
-    int pos=0;
+    int pos=-1;
     int i=0;
+
     while(temp2!=NULL){
+        
+        i++;
         if(temp1->data==temp2->data){
             temp1=temp1->next;
             temp2=temp2->next;
             flag++;
-            if(flag==count1){
-                pos=i;
-            }
         }
         else{
             temp1=head1;
             temp2=temp2->next;
             flag=0;
+            i=0;
+            printf("\nelse loop\n");
         }
-        i++;
+        printf("\nin while loop\n");
+        printf("i=%d",i);
+        printf("flag=%d",flag);
+        printf("pos=%d",pos);
     }
     if(flag==count1){
         printf("Sublist found at position %d",pos);
@@ -127,7 +209,7 @@ void main(){
     printf("\t%d\n",count2);
     printf("\n");
     
-    CheckSublist(head1,head2);
+    CheckFirstPositionOfLastOccuringSublist(head1,head2);
     printf("\n");
 
 
