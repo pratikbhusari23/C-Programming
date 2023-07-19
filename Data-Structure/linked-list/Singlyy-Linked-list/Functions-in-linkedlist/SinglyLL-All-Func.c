@@ -7,7 +7,9 @@ typedef struct Nodes{
 	int data;
 	struct Nodes *next;
 }Node;
+
 Node *head = NULL;//Declaring Head Globally
+
 Node* createNode(){
 
 	Node *newNode = (Node*)malloc(sizeof(Node));//Creating New Node on Heap
